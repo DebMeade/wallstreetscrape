@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost/wallstreetscrape", { useNewUrlParser: true });
+mongoose.connect(process.env.MONDODB_URI || "mongodb://localhost/wallstreetscrape", { useNewUrlParser: true });
 
 //Routes
 
