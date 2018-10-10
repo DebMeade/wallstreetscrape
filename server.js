@@ -47,6 +47,18 @@ app.get("/scrape", function(req, res) {
   });
 });
 
+
+//adding the / for heroku
+app.get("/", function(req, res) {
+  db.Article.find({})
+    .then(function(dbArticle) {
+      res.json(dbArticle);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
+});
+
 app.get("/articles", function(req, res) {
   db.Article.find({})
     .then(function(dbArticle) {
